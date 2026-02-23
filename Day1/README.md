@@ -1,4 +1,4 @@
-\# Training Session - Cloud Maven (Linux Day 1)
+# Training Session - Cloud Maven (Linux Day 1)
 
 
 
@@ -6,15 +6,13 @@ This repository contains hands-on practice of Linux fundamentals including:
 
 
 
-\- User Management
+- User Management
 
-\- File Permissions
+- File Permissions
 
-\- Process Management
+- Process Management
 
-\- Vim Editor Practice
-
-
+- Vim Editor Practice
 
 
 
@@ -22,7 +20,9 @@ This repository contains hands-on practice of Linux fundamentals including:
 
 
 
-\# Environment Setup (Vagrant + VirtualBox)
+
+
+# Environment Setup (Vagrant + VirtualBox)
 
 
 
@@ -106,11 +106,11 @@ pwd → Shows current directory
 
 📸 Lab 1 Screenshots
 
-!\[Lab1 Step 1](Lab1.1.png)
+![Lab1 Step 1](Lab1.1.png)
 
-!\[Lab1 Step 2](Lab1.2.png)
+![Lab1 Step 2](Lab1.2.png)
 
-!\[Lab1 Step 3](Lab1.3.png)
+![Lab1 Step 3](Lab1.3.png)
 
 
 
@@ -190,9 +190,9 @@ Shows permission denied if not owner.
 
 &nbsp;-->Lab 2 Screenshots
 
-!\[Lab2 Step 1](Lab2.1.png)
+![Lab2 Step 1](Lab2.1.png)
 
-!\[Lab2 Step 2](lab2.2.png)
+![Lab2 Step 2](lab2.2.png)
 
 
 
@@ -212,7 +212,7 @@ sleep 100 → Runs for 100 seconds
 
 
 
-\& → Runs in background
+& → Runs in background
 
 
 
@@ -236,19 +236,18 @@ Stops the process using Process ID.
 
 
 
-&nbsp;Lab 3 Screenshot
+Lab 3 Screenshot
 
-!\[Lab3](Lab3.png)
-
-
+![Lab3](Lab3.png)
 
 
 
 
 
-&nbsp;Lab 4 – Vim Editor Practice
 
---> Create \& Open File
+Lab 4 – Vim Editor Practice
+
+--> Create & Open File
 
 vim hello.txt
 
@@ -268,7 +267,7 @@ Start typing text.
 
 
 
---> Save \& Exit
+--> Save & Exit
 
 :wq
 
@@ -294,9 +293,9 @@ Displays file content.
 
 &nbsp;Lab 4 Screenshots
 
-!\[Lab4 Step 1](Lab4.1.png)
+![Lab4 Step 1](Lab4.1.png)
 
-!\[Lab4 Step 2](Lab4.2.png)
+![Lab4 Step 2](Lab4.2.png)
 
 
 
