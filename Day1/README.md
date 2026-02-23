@@ -56,11 +56,11 @@ sudo useradd -m cloud-maven
 
 
 
-useradd → Creates a new user
+-> useradd → Creates a new user
 
 
 
--m → Creates home directory /home/cloud-maven
+-> -m → Creates home directory /home/cloud-maven
 
 
 
@@ -84,7 +84,7 @@ Switches to the new user
 
 
 
-\- loads full environment
+- loads full environment
 
 
 
@@ -96,15 +96,15 @@ pwd
 
 
 
-whoami → Shows current logged-in user
+->whoami → Shows current logged-in user
 
 
 
-pwd → Shows current directory
+->pwd → Shows current directory
 
 
 
-📸 Lab 1 Screenshots
+Lab 1 Screenshots
 
 ![Lab1 Step 1](Lab1.1.png)
 
@@ -132,7 +132,7 @@ Creates an empty file.
 
 --> Check Permissions
 
-ls -l
+->ls -l
 
 
 
@@ -187,8 +187,7 @@ cat test.txt
 Shows permission denied if not owner.
 
 
-
-&nbsp;-->Lab 2 Screenshots
+-->Lab 2 Screenshots
 
 ![Lab2 Step 1](Lab2.1.png)
 
@@ -204,7 +203,7 @@ Lab 3 – Process Management
 
 --> Run Process in Background
 
-sleep 100 \&
+sleep 100 &
 
 
 
@@ -212,7 +211,7 @@ sleep 100 → Runs for 100 seconds
 
 
 
-& → Runs in background
+-> & → Runs in background
 
 
 
@@ -273,11 +272,11 @@ Start typing text.
 
 
 
-:w → Save
+-> :w → Save
 
 
 
-:q → Quit
+-> :q → Quit
 
 
 
@@ -290,8 +289,7 @@ cat hello.txt
 Displays file content.
 
 
-
-&nbsp;Lab 4 Screenshots
+Lab 4 Screenshots
 
 ![Lab4 Step 1](Lab4.1.png)
 
