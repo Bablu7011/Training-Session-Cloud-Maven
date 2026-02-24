@@ -18,6 +18,7 @@ Step 2 – Verify Generated Keys
     ->ls → shows generated keys
 
     ->cat → displays public key content
+    
 ![Lab1 Step 2](Lab1.2.png)
     
 
