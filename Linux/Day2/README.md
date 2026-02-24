@@ -5,9 +5,9 @@ Step 1 – Generate SSH Key
 
 This generates:
 
-->Private key → id_ed25519
+    ->Private key → id_ed25519
 
-->Public key → id_ed25519.pub
+    ->Public key → id_ed25519.pub
 
 ![Lab1 Step 1](Lab1.1.png)
 
