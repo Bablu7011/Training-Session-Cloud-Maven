@@ -9,7 +9,7 @@ This generates:
 
     ->Public key → id_ed25519.pub
 
-    ![Lab1 Step 1](Lab1.1.png)
+![Lab1 Step 1](Lab1.1.png)
 
 Step 2 – Verify Generated Keys
     ls
@@ -18,7 +18,7 @@ Step 2 – Verify Generated Keys
     ->ls → shows generated keys
 
     ->cat → displays public key content
-    ![Lab1 Step 2](Lab1.2.png)
+![Lab1 Step 2](Lab1.2.png)
     
 
 Step 3 – Add Public Key to Server
@@ -28,7 +28,7 @@ Step 3 – Add Public Key to Server
     ->Public key is added to authorized_keys
 
     ->This allows passwordless login
-    ![Lab1 Step 2](Lab1.3.png)
+![Lab1 Step 2](Lab1.3.png)
     
 
 Step 4 – Verify SSH Configuration
@@ -37,9 +37,9 @@ Step 4 – Verify SSH Configuration
     ->Checked SSH server configuration
 
     ->Verified authentication settings
-    ![Lab1 Step 3](Lab1.4.png)
-    ![Lab1 Step 3](Lab1.5.png)
-    ![Lab1 Step 3](Lab1.6.png)
+![Lab1 Step 3](Lab1.4.png)
+![Lab1 Step 3](Lab1.5.png)
+![Lab1 Step 3](Lab1.6.png)
 
 Step 5 – Confirm Password Authentication Disabled
     sudo sshd -T | grep passwordauthentication
@@ -48,8 +48,8 @@ Step 5 – Confirm Password Authentication Disabled
 
     ->Ensures secure key-based login only
     
-    ![Lab1 Step 3](Lab1.7.png)
-    ![Lab1 Step 3](Lab1.8.png)
+![Lab1 Step 3](Lab1.7.png)
+![Lab1 Step 3](Lab1.8.png)
     
 
 Lab 2 – Cron Job Scheduling
@@ -57,7 +57,7 @@ Step 1 – Open Crontab Editor
     crontab -e
 
     ->Creates user cron job file.
-    ![Lab2 Step 1](Lab2.1.png)
+![Lab2 Step 1](Lab2.1.png)
 
 Step 2 – Add Cron Job
     */5 * * * * echo "Test" >> /tmp/test.log
@@ -80,7 +80,7 @@ Step 4 – Check Log File
     cat /tmp/test.log
 
     ->Verified cron executed successfully
-    ![Lab2 ](Lab2.2.png)
+![Lab2 ](Lab2.2.png)
 
 Lab 3 – systemd Service & Timer
 Step 1 – Create Script
@@ -92,7 +92,7 @@ Step 1 – Create Script
     echo "Hello Systemd" >> /tmp/systemd.log
 
     ->Makes the script write to a log file.
-    ![Lab3](Lab3.2.png)
+![Lab3](Lab3.2.png)
     
 
 Step 2 – Make Script Executable
@@ -116,7 +116,7 @@ Step 3 – Create systemd Service File
 
     ->Defines WHAT to run.
 
-    ![Lab3](Lab3.3.png)
+![Lab3](Lab3.3.png)
 
 Step 4 – Create systemd Timer File
     sudo vim /etc/systemd/system/systemd_test.timer
@@ -133,7 +133,7 @@ Step 4 – Create systemd Timer File
     WantedBy=timers.target
 
     ->Defines WHEN to run (every 5 minutes).
-    ![Lab3](Lab3.4.png)
+![Lab3](Lab3.4.png)
 
 Step 5 – Reload systemd
     sudo systemctl daemon-reload
@@ -155,6 +155,6 @@ Step 7 – Verify Timer
 
 Step 8 – Check Output Log
     cat /tmp/systemd.log
-    ![Lab3](Lab3.1.png)
+![Lab3](Lab3.1.png)
 
 Confirms systemd timer executed successfully.
