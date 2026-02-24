@@ -18,7 +18,7 @@ Step 2 – Verify Generated Keys
     ->ls → shows generated keys
 
     ->cat → displays public key content
-    ![Lab1 Step 1](Lab1.2.png)
+![Lab1 Step 1](lab1.2.png)
     
 
     
@@ -59,7 +59,7 @@ Step 1 – Open Crontab Editor
     crontab -e
 
     ->Creates user cron job file.
-![Lab2 Step 1](Lab2.1.png)
+![Lab2 Step 1](lab2.1.png)
 
 Step 2 – Add Cron Job
     */5 * * * * echo "Test" >> /tmp/test.log
