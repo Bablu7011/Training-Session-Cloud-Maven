@@ -1,6 +1,6 @@
 
 
-# 📘 Day 3 – Linux Networking & Web Server Lab
+#  Day 3 – Linux Networking & Web Server Lab
 
 This lab covers:
 
