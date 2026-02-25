@@ -166,4 +166,4 @@ Confirms systemd timer executed successfully.
 
 HomeWork:-
 Write a bash one-liner to:-
-![HOMEWORK](Lab4.png)
+![HOMEWORK](HOMEWORK.png)
