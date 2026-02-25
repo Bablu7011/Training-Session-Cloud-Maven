@@ -14,15 +14,15 @@ This lab covers:
 
 ---
 
-# 🧪 Task 1 – Verify Network Identity
+#  Task 1 – Verify Network Identity
 
-## 🔹 Command Used
+##  Command Used
 
 ```bash
 ip addr
 ```
 
-### 📖 Explanation
+###  Explanation
 
 This command shows:
 
@@ -42,7 +42,7 @@ It helps us identify:
 ip route
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Shows routing table:
 
@@ -56,7 +56,7 @@ Shows routing table:
 hostname -I
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Displays the system IP address in clean format.
 
@@ -66,19 +66,19 @@ Displays the system IP address in clean format.
 ping -c 4 172.31.0.1
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Tests connectivity to the default gateway.
 
 ---
 
-### 📷 Output Screenshot
+###  Output Screenshot
 
 ![Task1 Step 1](Task1.png)
 
 ---
 
-# 🌍 Task 2 – Test Internet Connectivity
+#  Task 2 – Test Internet Connectivity
 
 ## 🔹 Test Internet by IP
 
@@ -86,20 +86,20 @@ Tests connectivity to the default gateway.
 ping -c 4 8.8.8.8
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Tests raw internet connectivity.
 If this works → routing & gateway are correct.
 
 ---
 
-## 🔹 Test Internet by Domain
+##  Test Internet by Domain
 
 ```bash
 ping -c 4 google.com
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Tests:
 
@@ -108,25 +108,25 @@ Tests:
 
 ---
 
-## 🔹 Trace Route
+##  Trace Route
 
 ```bash
 traceroute google.com
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Shows path packets travel from EC2 to Google.
 
 ---
 
-### 📷 Output Screenshot
+###  Output Screenshot
 
 ![Task2](Task2.png)
 
 ---
 
-# 🌐 Task 3 – DNS Analysis
+#  Task 3 – DNS Analysis
 
 ## 🔹 Check DNS Resolution
 
@@ -134,7 +134,7 @@ Shows path packets travel from EC2 to Google.
 dig google.com
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Displays:
 
@@ -145,13 +145,13 @@ Displays:
 
 ---
 
-## 🔹 Check /etc/resolv.conf
+##  Check /etc/resolv.conf
 
 ```bash
 cat /etc/resolv.conf
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Shows which DNS server system is using.
 In this case:
@@ -164,93 +164,93 @@ Which means systemd-resolved stub resolver.
 
 ---
 
-## 🔹 Use nslookup
+##  Use nslookup
 
 ```bash
 nslookup google.com
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Another method to test DNS resolution.
 
 ---
 
-### 📷 Output Screenshot
+###  Output Screenshot
 
 ![Task3](Task3.png)
 
 ---
 
-# 🌐 Task 4 – Install and Configure Nginx
+#  Task 4 – Install and Configure Nginx
 
-## 🔹 Install Nginx
+##  Install Nginx
 
 ```bash
 sudo apt install nginx -y
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Installs nginx web server and enables the service.
 
 ---
 
-## 🔹 Create Simple Web Page
+##  Create Simple Web Page
 
 ```bash
 echo "Hello from my server" | sudo tee /var/www/html/index.html
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Creates/overwrites default nginx page.
 
 ---
 
-## 🔹 Test Locally
+##  Test Locally
 
 ```bash
 curl http://localhost
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Tests if nginx is working internally.
 
 ---
 
-### 📷 Output Screenshot
+###  Output Screenshot
 
 ![Task4 Step 1](Task4.1.png)
 
 ---
 
-## 🔹 Check Service Status
+##  Check Service Status
 
 ```bash
 sudo systemctl status nginx
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Verifies nginx service is active and running.
 
 ---
 
-### 📷 Output Screenshot
+###  Output Screenshot
 
 ![Task4 Step 2](Task4.2.png)
 
 ---
 
-# 🔌 Task 5 – Check Listening Ports
+#  Task 5 – Check Listening Ports
 
 ```bash
 ss -tuln
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Shows open ports:
 
@@ -260,19 +260,19 @@ Shows open ports:
 
 ---
 
-### 📷 Output Screenshot
+###  Output Screenshot
 
 ![Task5](Task5.png)
 
 ---
 
-# 🛑 Task 6 – Task 6 — Test Application Connectivity
+#  Task 6 – Task 6 — Test Application Connectivity
 
 ```bash
 curl -I http://localhost
 ```
 
-### 📖 Explanation
+###  Explanation
 
 curl → Client tool to send HTTP request
 
@@ -286,7 +286,7 @@ http://localhost → Sends request to local web server
 wget http://localhost
 ```
 
-### 📖 Explanation
+###  Explanation
 
 wget → Downloads content from a URL
 
@@ -294,46 +294,46 @@ http://localhost → Fetches homepage from local Nginx server
 
 ---
 
-### 📷 Output Screenshot
+###  Output Screenshot
 
 ![Task6](Task6.png)
 
 ---
 
-# 🔥 Task 7 – Firewall Configuration (UFW)
+#  Task 7 – Firewall Configuration (UFW)
 
-## 🔹 Enable Firewall
+##  Enable Firewall
 
 ```bash
 sudo ufw enable
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Activates firewall protection.
 
 ---
 
-## 🔹 Allow Web Traffic
+##  Allow Web Traffic
 
 ```bash
 sudo ufw allow 80
 sudo ufw allow 443
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Allows HTTP & HTTPS traffic.
 
 ---
 
-## 🔹 Deny SSH
+##  Deny SSH
 
 ```bash
 sudo ufw deny 22
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Blocks SSH access (port 22).
 And i have connected(ssh) with port 443 so then i have deny and checked that working or not.
@@ -341,33 +341,33 @@ Because my college wifi blocked port 22 to connect so in /etc/ssh/sshd_config i 
 
 ---
 
-## 🔹 Check Status
+##  Check Status
 
 ```bash
 sudo ufw status
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Displays firewall rules.
 
 ---
 
-### 📷 Output Screenshot
+###  Output Screenshot
 
 ![Task7 Step 1](task7.1.png)
 
 ---
 
-### 📷 SSH Block Screenshot
+###  SSH Block Screenshot
 
 ![Task7 Step 2](Task7.2.png)
 
 ---
 
-# 🏷 Task 8 – Local Domain using /etc/hosts
+#  Task 8 – Local Domain using /etc/hosts
 
-## 🔹 Edit Hosts File
+##  Edit Hosts File
 
 ```bash
 sudo vim /etc/hosts
@@ -379,25 +379,25 @@ Add:
 127.0.0.1 mytest.local
 ```
 
-### 📖 Explanation
+###  Explanation
 
 This overrides DNS and maps domain to localhost.
 
 ---
 
-## 🔹 Test Custom Domain
+##  Test Custom Domain
 
 ```bash
 curl http://mytest.local
 ```
 
-### 📖 Explanation
+###  Explanation
 
 Verifies local domain resolution without DNS server.
 
 ---
 
-### 📷 Hosts File Screenshot
+###  Hosts File Screenshot
 
 ![Task8 Step 1](Task8.1.png)
 
