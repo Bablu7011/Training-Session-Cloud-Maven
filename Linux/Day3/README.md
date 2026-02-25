@@ -266,25 +266,31 @@ Shows open ports:
 
 ---
 
-# 🛑 Task 6 – Stop Nginx and Verify
+# 🛑 Task 6 – Task 6 — Test Application Connectivity
 
 ```bash
-sudo systemctl stop nginx
+curl -I http://localhost
 ```
 
 ### 📖 Explanation
 
-Stops nginx service.
+curl → Client tool to send HTTP request
+
+-I → Fetch only HTTP headers 
+
+http://localhost → Sends request to local web server
 
 ---
 
 ```bash
-ss -tuln
+wget http://localhost
 ```
 
 ### 📖 Explanation
 
-Verify that port 80 is no longer listening.
+wget → Downloads content from a URL
+
+http://localhost → Fetches homepage from local Nginx server
 
 ---
 
@@ -330,6 +336,8 @@ sudo ufw deny 22
 ### 📖 Explanation
 
 Blocks SSH access (port 22).
+And i have connected(ssh) with port 443 so then i have deny and checked that working or not.
+Because my college wifi blocked port 22 to connect so in /etc/ssh/sshd_config i have done changes.
 
 ---
 
