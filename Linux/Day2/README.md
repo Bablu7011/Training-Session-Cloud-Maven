@@ -160,3 +160,10 @@ Step 8 – Check Output Log
 ![Lab3](Lab3.1.png)
 
 Confirms systemd timer executed successfully.
+
+
+
+
+HomeWork:-
+Write a bash one-liner to:-
+![HOMEWORK](Lab4.png)
