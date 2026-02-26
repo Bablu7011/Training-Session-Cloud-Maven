@@ -226,7 +226,7 @@ Added:
 */5 * * * * /home/vagrant/disk_check.sh
 ```
 
-![Homework5 Step 1](Homework5.1.png)
+
 
 ---
 
@@ -239,7 +239,7 @@ Check log:
 ```bash
 cat /tmp/disk_alert.log
 ```
-
+![Homework5 Step 1](Homework5.1.png)
 ![Homework5 Step 2](Homework5.2.png)
 
 ---
@@ -249,18 +249,5 @@ cat /tmp/disk_alert.log
 * Threshold changed to 1% to trigger alert.
 * After 5 minutes, cron executed automatically and log entry was created.
 
----
-
-# 🔥 Key Learnings
-
-* Bash scripting basics
-* Argument handling
-* Process monitoring
-* Disk usage monitoring
-* Log analysis
-* Cron job automation
-* Network packet capture
-
----
 
 
