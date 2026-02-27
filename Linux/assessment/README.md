@@ -11,30 +11,25 @@
 **b.** Show the output of `umask` and explain how umask affected the permission of that file.
 
 Default `umask` was `0022`, so new file permission became `644` (666 - 022 = 644).
-Changing `umask` to `0666` resulted in file permission `000`, proving umask removes permission bits from default base value.
+Changing `umask` to `0666` resulted in file permission `000`, showing how umask removes permission bits from default value.
 
-Reference: test1 image
+![test1 Step 1](test1.png)
 
 ---
 
 ## 2. Users (Practical)
 
-**a.** Create a user named `intern1` with `/bin/bash` as the default shell and set account expiry in 7 days.
+**a.** Create a user named `intern1` with `/bin/bash` as default shell and set account expiry in 7 days.
 
-Command used:
-
-```
+```bash
 sudo useradd -m -s /bin/bash intern1
 sudo chage -E $(date -d "+7 days" +"%Y-%m-%d") intern1
-```
-
-Verified using:
-
-```
 sudo chage -l intern1
 ```
 
-Reference: test2 image
+Verified account expiry using `chage -l`.
+
+![test2 Step 1](test2.png)
 
 ---
 
@@ -42,15 +37,16 @@ Reference: test2 image
 
 **a.** Generate SSH keypair and configure passwordless login.
 
-Steps:
-
 * Generated key using `ssh-keygen`
-* Copied public key to `~/.ssh/authorized_keys`
+* Added public key to `~/.ssh/authorized_keys`
 * Logged in using `ssh -i` into localhost
 
-Successful login confirmed key-based authentication working.
+Successful login confirmed key-based authentication.
 
-Reference: test3.1 to test3.4 images
+![test3 Step 1](test3.1.png)
+![test3 Step 2](test3.2.png)
+![test3 Step 3](test3.3.png)
+![test3 Step 4](test3.4.png)
 
 ---
 
@@ -58,71 +54,56 @@ Reference: test3.1 to test3.4 images
 
 **a.** Install `htop` using apt.
 
-```
+```bash
 sudo apt install htop
 ```
 
 **b.** Find which package provides `/bin/bash`.
 
-```
+```bash
 dpkg -S /bin/bash
 ```
 
 Output shows `/bin/bash` is provided by `bash` package.
 
-Reference: test4.1 and test4.2 images
+![test4 Step 1](test4.1.png)
+![test4 Step 2](test4.2.png)
 
 ---
 
 ## 5. Cron (Practical)
 
-**a.** Create cron job to run `/usr/bin/date` every minute and append output to `/tmp/cron_test.log`.
+**a.** Create cron job that runs `/usr/bin/date` every minute and appends output to `/tmp/cron_test.log`.
 
 Crontab entry:
 
-```
+```bash
 * * * * * /usr/bin/date >> /tmp/cron_test.log
 ```
 
-Verified using:
+Verified using `crontab -l` and checked log output.
 
-```
-crontab -l
-cat /tmp/cron_test.log
-```
-
-Reference: test5 image
+![test5 Step 1](test5.png)
 
 ---
 
 ## 6. Systemd Timer (Practical)
 
 **a.** Create service that writes "Hello from systemd" into `/tmp/hello.txt`.
+**b.** Trigger using `.timer` every 2 minutes and enable it.
 
-Service file: `systemd_test.service`
-Timer file: `systemd_test.timer`
+Timer configuration:
 
-Timer configured with:
-
-```
+```bash
 OnCalendar=*:0/2
 ```
 
-Enabled using:
+Enabled and verified using `systemctl list-timers`.
 
-```
-sudo systemctl enable systemd_test.timer
-sudo systemctl start systemd_test.timer
-```
-
-Verified using:
-
-```
-systemctl list-timers
-cat /tmp/hello.txt
-```
-
-Reference: test6.1 to test6.4 images
+![test6 Step 1](test6.1.png)
+![test6 Step 2](test6.2.png)
+![test6 Step 3](test6.3.png)
+![test6 Step 4](test6.4.png)
 
 ---
 
@@ -130,47 +111,38 @@ Reference: test6.1 to test6.4 images
 
 ### a. Ping and Traceroute
 
-```
+```bash
 ping -c 1 8.8.8.8
 traceroute example.com
 ```
 
-Verified connectivity and route path.
-
 ### b. Listening Ports
 
-```
+```bash
 ss -tuln
 ss -tuln | grep 80
 ```
 
-Confirmed open TCP ports and checked if port 80 is listening.
-
 ### c. Packet Capture and Firewall Rule
 
-Captured HTTP traffic:
-
-```
+```bash
 sudo tcpdump -i any port 80 -c 5 -w /tmp/http.pcap
-```
-
-Blocked source IP:
-
-```
 sudo ufw deny from 10.0.2.55 to any port 80
 sudo ufw status
 ```
 
 ### d. HTTP Headers and DNS
 
-```
+```bash
 curl -I http://example.com
 dig +short example.com
 ```
 
-Verified response headers and A records.
-
-Reference: test7a to test7d images
+![test7a](test7a.png)
+![test7b](test7b.png)
+![test7c Step 1](test7c.1.png)
+![test7c Step 2](test7c.2.png)
+![test7d](test7d.png)
 
 ---
 
@@ -178,31 +150,27 @@ Reference: test7a to test7d images
 
 ### a. Disk Usage
 
-```
+```bash
 df -h
 du -sh /var/log
 ```
 
-Checked filesystem usage and log directory size.
+### b. Top 3 Processes by Memory
 
-### b. Top 3 Memory Processes
-
-```
+```bash
 ps aux --sort=-%mem | head -4
 ```
 
-Sorted processes by memory usage and displayed top 3.
-
 ### c. System Logs
 
-```
+```bash
 journalctl -n 20
 sudo tail -n 20 /var/log/syslog
 ```
 
-Displayed recent system and syslog entries.
-
-Reference: test8a to test8c images
+![test8a](test8a.png)
+![test8b](test8b.png)
+![test8c](test8c.png)
 
 ---
 
@@ -210,7 +178,7 @@ Reference: test8a to test8c images
 
 ### a. Last 20 Journal Logs
 
-```
+```bash
 journalctl -n 20
 ```
 
@@ -223,54 +191,44 @@ Nginx logs:
 /var/log/nginx/error.log
 ```
 
-Apache logs (if installed):
+Apache logs:
 
 ```
 /var/log/apache2/access.log
 /var/log/apache2/error.log
 ```
 
-Reference: test9a to test9b images
+![test9a](test9a.png)
+![test9b](test9b.png)
 
 ---
 
 ## 10. Network Troubleshooting (Practical)
 
-Capture only HTTP traffic:
+Capture HTTP traffic on port 80:
 
-```
+```bash
 sudo tcpdump -i any port 80 -w http.pcap
-```
-
-Verified file creation:
-
-```
 ls -lh http.pcap
 ```
 
-Reference: test10a.1 and test10a.2 images
+![test10a Step 1](test10a.1.png)
+![test10a Step 2](test10a.2.png)
 
 ---
 
 ## 11. Small Script (Practical)
 
-Created `/tmp/check_disk.sh`:
+Created `/tmp/check_disk.sh` to check root disk usage.
 
 Logic:
 
-* Check `/` usage using `df`
-* If usage > 80%, print "Disk almost full" to stderr and exit 1
+* If `/` usage > 80%, print "Disk almost full" to stderr and exit 1
 * Otherwise print "Disk OK" to stdout and exit 0
 
-Executed script:
+Executed script and verified output.
 
-```
-./check_disk.sh
-```
-
-Output confirmed expected behavior.
-
-Reference: test11 image
+![test11](test11.png)
 
 ---
 
