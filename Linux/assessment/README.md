@@ -7,9 +7,6 @@
 
 ## 1. Permissions & umask (Practical)
 
-**a.** Create a file named `test.txt` with default permissions.
-**b.** Show the output of `umask` and explain how umask affected the permission of that file.
-
 Default `umask` was `0022`, so new file permission became `644` (666 - 022 = 644).
 Changing `umask` to `0666` resulted in file permission `000`, showing how umask removes permission bits from default value.
 
@@ -19,7 +16,6 @@ Changing `umask` to `0666` resulted in file permission `000`, showing how umask 
 
 ## 2. Users (Practical)
 
-**a.** Create a user named `intern1` with `/bin/bash` as default shell and set account expiry in 7 days.
 
 ```bash
 sudo useradd -m -s /bin/bash intern1
@@ -35,7 +31,6 @@ Verified account expiry using `chage -l`.
 
 ## 3. SSH (Practical)
 
-**a.** Generate SSH keypair and configure passwordless login.
 
 * Generated key using `ssh-keygen`
 * Added public key to `~/.ssh/authorized_keys`
@@ -73,7 +68,6 @@ Output shows `/bin/bash` is provided by `bash` package.
 
 ## 5. Cron (Practical)
 
-**a.** Create cron job that runs `/usr/bin/date` every minute and appends output to `/tmp/cron_test.log`.
 
 Crontab entry:
 
@@ -88,9 +82,6 @@ Verified using `crontab -l` and checked log output.
 ---
 
 ## 6. Systemd Timer (Practical)
-
-**a.** Create service that writes "Hello from systemd" into `/tmp/hello.txt`.
-**b.** Trigger using `.timer` every 2 minutes and enable it.
 
 Timer configuration:
 
@@ -232,3 +223,17 @@ Executed script and verified output.
 
 ---
 
+
+Bonus: 
+---
+--> stdout is used for standard output.
+--> stderr is used for error messages.
+
+Example:
+echo "Hello" > output.txt
+echo "Error" > error.txt
+
+-->Cron and systemd timers are used to schedule tasks.
+In cron, a single crontab line schedules a command.
+In systemd timer, we create two files: a .service file and a .timer file.
+---
