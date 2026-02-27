@@ -93,7 +93,7 @@ Step 1 – Create Script
     #!/bin/bash
     echo "Hello Systemd" >> /tmp/systemd.log
 
-    ->Makes the script write to a log file.
+->Makes the script write to a log file.
 ![Lab3](Lab3.2.png)
     
 
@@ -116,7 +116,7 @@ Step 3 – Create systemd Service File
     [Install]
     WantedBy=multi-user.target
 
-    ->Defines WHAT to run.
+->Defines WHAT to run.
 
 ![Lab3](Lab3.3.png)
 
@@ -134,7 +134,7 @@ Step 4 – Create systemd Timer File
     [Install]
     WantedBy=timers.target
 
-    ->Defines WHEN to run (every 5 minutes).
+->Defines WHEN to run (every 5 minutes).
 ![Lab3](Lab3.4.png)
 
 Step 5 – Reload systemd
