@@ -182,6 +182,7 @@ Nginx logs:
 /var/log/nginx/error.log
 ```
 
+for the apache i have not installed but apche logs also going to store in /var/log directory
 Apache logs:
 
 ```
@@ -236,4 +237,5 @@ echo "Error" > error.txt
 -->Cron and systemd timers are used to schedule tasks.
 In cron, a single crontab line schedules a command.
 In systemd timer, we create two files: a .service file and a .timer file.
+
 ---
