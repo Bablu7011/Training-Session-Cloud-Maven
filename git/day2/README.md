@@ -2,7 +2,7 @@
 ---
 
 ````markdown
-# Git Training – Scenario Based Practice
+ Git Training – Scenario Based Practice
 
 This repository demonstrates practical Git scenarios that developers commonly face while working in a team environment.  
 Each scenario shows the problem, the solution, and the commands used to fix it.
