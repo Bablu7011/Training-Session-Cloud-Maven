@@ -108,7 +108,6 @@ Create a simple webpage:
 echo '<h1>Welcome to home page</h1>' > /var/www/myapp.local/html/index.html
 ```
 
-![Task2 Step1](task2.1.png)
 
 ---
 
@@ -119,7 +118,6 @@ sudo systemctl status nginx
 sudo systemctl enable nginx
 ```
 
-![Task2 Step2](task2.2.png)
 
 ---
 
@@ -132,7 +130,6 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 -subj "/CN=myapp.local"
 ```
 
-![Task2 Step3](task2.3.png)
 
 ---
 
@@ -142,8 +139,10 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 sudo ls /etc/ssl/private
 sudo ls /etc/ssl/certs | grep myapp.crt
 ```
+![Task2 Step1](task2.1.png)
+![Task2 Step2](task2.2.png)
 
-![Task2 Step4](task2.4.png)
+
 
 ---
 
@@ -178,8 +177,8 @@ server {
     }
 }
 ```
+![Task2 Step4](task2.4.png)
 
-![Task2 Step5](task2.5.png)
 
 ---
 
@@ -195,7 +194,7 @@ Remove default config:
 sudo rm -f /etc/nginx/sites-enabled/default
 ```
 
-![Task2 Step6](task2.6.png)
+
 
 ---
 
@@ -206,7 +205,7 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-![Task2 Step7](task2.7.png)
+
 
 ---
 
@@ -231,8 +230,8 @@ Example:
 ```
 3.108.254.22 myapp.local
 ```
+![Task2 Step3](task2.3.png)
 
-![Task2 Step8](task2.8.png)
 
 ---
 
@@ -246,7 +245,7 @@ https://myapp.local
 
 Since the certificate is self-signed, the browser shows **"Not Secure" warning**, which is expected.
 
-![Task2 Step9](task2.9.png)
+![Task2 Step9](task2.5.png)
 
 ---
 
@@ -258,7 +257,8 @@ You can view certificate details like:
 * Issued By
 * Validity Period
 
-![Task2 Step10](task2.10.png)
+![Task2 Step10](task2.6.png)
+![Task2 Step10](task2.7.png)
 
 ---
 
