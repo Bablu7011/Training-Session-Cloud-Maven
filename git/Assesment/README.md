@@ -532,3 +532,36 @@ git log --oneline
 
 ---
 
+
+
+ # Short Answer Questions 
+
+Q1.
+git revert cancels a commit by making a new commit. git reset --hard removes commits and changes. In team projects we use revert because it is safer.
+
+Q2.
+Working Directory is where we edit files. Staging Area is where files are prepared before saving. Repository is where Git stores the final commits. git add moves files to staging and git commit saves them.
+
+Q3.
+A merge conflict happens when two branches change the same line in a file. Git shows markers like <<<<<<< and >>>>>>>. We fix the code, remove the markers, then add and commit again.
+
+Q4.
+.gitignore tells Git which files it should not track. Example: node_modules/ because it is very large, and .env because it has secret passwords.
+
+Q5.
+git merge joins branches and keeps all history. git rebase moves commits to make history look clean and straight. We should not rebase shared branches because it can confuse other developers.
+
+Q6.
+NGINX uses an event system where one worker handles many users at the same time. Apache makes a new thread for each user. That is why NGINX works better when many people visit the website.
+
+Q7.
+sites-available keeps all website configs. sites-enabled keeps only the active ones using links. This helps us easily turn sites on or off.
+
+Q8.
+A reverse proxy takes requests from users and sends them to the application server. NGINX is used in front of Node.js or Python apps to manage traffic, security, and SSL.
+
+Q9.
+SSL termination means the load balancer handles HTTPS and decrypts it. Then it sends normal HTTP to backend servers. The certificate is on the load balancer, not the backend.
+
+Q10.
+try_files $uri $uri/ =404 checks if the file exists. If not, it checks if a folder exists. If neither exists, NGINX returns a 404 not found error.
