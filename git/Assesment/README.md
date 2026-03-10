@@ -127,7 +127,13 @@ def subtract(a,b):
     return a-b
 ```
 
+```bash
+git checkout main
+git pull origin main
+```
+
 ![Task2 Step2](task2.2.png)
+
 
 ---
 
@@ -181,12 +187,7 @@ After review, the PR was merged into the main branch.
 
 ---
 
-## Step 8 – Pull Latest Changes
 
-```bash
-git checkout main
-git pull origin main
-```
 
 ![Task2 Step8](task2.8.png)
 
@@ -389,7 +390,8 @@ sudo systemctl reload nginx
 ```
 
 ![Task5 Step3](task5.3.png)
-
+![Task5 Step4](task5.4.png)
+![Task5 Step5](task5.5.png)
 ---
 
 ## Step 4 – Update Hosts File
@@ -398,7 +400,7 @@ sudo systemctl reload nginx
 127.0.0.1 myapp.local
 ```
 
-![Task5 Step4](task5.4.png)
+
 
 ---
 
@@ -410,7 +412,7 @@ curl http://myapp.local
 
 NGINX successfully proxies requests to the Docker backend.
 
-![Task5 Step5](task5.5.png)
+
 
 ---
 
@@ -522,6 +524,11 @@ git log --oneline
 
 ![Task6c Step1](task6c.1.png)
 
-![Task6c Step2](task6c.6.png)
+![Task6c Step2](task6c.2.png)
+![Task6c Step2](task6c.3.png)
+![Task6c Step2](task6c.4.png)
+![Task6c Step2](task6c.5.png)
+
 
 ---
+
