@@ -1,5 +1,4 @@
 
-```markdown
 # - Docker Training: Introduction & Best Practices
 
 ## Docker
