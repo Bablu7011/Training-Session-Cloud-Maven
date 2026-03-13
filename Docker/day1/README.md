@@ -233,6 +233,5 @@ Always keep Docker images small by installing only required dependencies and rem
 Files or folders like logs, node_modules, or other unnecessary dependencies that we do not want inside the image should be listed in `.dockerignore`.
 ```
 
----
 
 
