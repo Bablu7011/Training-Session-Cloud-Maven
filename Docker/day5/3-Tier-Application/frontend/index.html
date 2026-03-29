@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Manager</title>
+<meta charset="UTF-8">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 60px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 5px rgba(79,172,254,0.5);
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #4facfe;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #007bff;
+    transform: scale(1.05);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background: #f5f7fa;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideUp 0.3s ease;
+}
+
+.delete-btn {
+    background: #ff4d4d;
+}
+
+.delete-btn:hover {
+    background: #cc0000;
+}
+
+.empty {
+    text-align: center;
+    color: gray;
+    margin-top: 15px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideUp {
+    from {transform: translateY(10px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>👤 User Manager</h2>
+
+<div class="input-group">
+<input id="name" placeholder="Enter name">
+<button onclick="addUser()">Add</button>
+</div>
+
+<ul id="list"></ul>
+<p id="emptyMsg" class="empty"></p>
+
+</div>
+
+<script>
+
+async function fetchUsers(){
+const res = await fetch("http://localhost:5000/users");
+const data = await res.json();
+
+let list = document.getElementById("list");
+let emptyMsg = document.getElementById("emptyMsg");
+
+list.innerHTML="";
+
+if(data.length === 0){
+    emptyMsg.innerText = "No users found 👀";
+} else {
+    emptyMsg.innerText = "";
+}
+
+data.forEach(user=>{
+let li=document.createElement("li");
+
+li.innerHTML = `
+    ${user.name}
+    <button class="delete-btn" onclick="deleteUser(${user.id})">Delete</button>
+`;
+
+list.appendChild(li);
+});
+}
+
+async function addUser(){
+let name=document.getElementById("name").value.trim();
+
+if(name === ""){
+    alert("Please enter a name!");
+    return;
+}
+
+await fetch("http://localhost:5000/add",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({name})
+});
+
+document.getElementById("name").value = "";
+fetchUsers();
+}
+
+async function deleteUser(id){
+await fetch(`http://localhost:5000/delete/${id}`,{
+method:"DELETE"
+});
+
+fetchUsers();
+}
+
+fetchUsers();
+
+</script>
+
+</body>
+</html>
