@@ -203,7 +203,7 @@ Enhance CI/CD pipeline with security and notifications.
 ![log2](log2.png)
 ![log3](log3.png)
 ![log4](log4.png)
-![log5](log5.png)
+![log5](log_5.png)
 
 ---
 
