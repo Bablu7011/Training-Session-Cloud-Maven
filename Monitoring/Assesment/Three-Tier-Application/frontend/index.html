@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3 Tier App</title>
+</head>
+
+<body>
+
+<h2>User Manager</h2>
+
+<input id="name" placeholder="Enter name">
+<button onclick="addUser()">Add</button>
+
+<h3>Users</h3>
+
+<ul id="list"></ul>
+
+<script>
+
+async function fetchUsers(){
+const res = await fetch("http://localhost:5000/users");
+const data = await res.json();
+
+let list = document.getElementById("list");
+list.innerHTML="";
+
+data.forEach(user=>{
+let li=document.createElement("li");
+li.innerHTML=user.name + 
+` <button onclick="deleteUser(${user.id})">Delete</button>`;
+list.appendChild(li);
+});
+}
+
+async function addUser(){
+let name=document.getElementById("name").value;
+
+await fetch("http://localhost:5000/add",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({name})
+});
+
+fetchUsers();
+}
+
+async function deleteUser(id){
+await fetch(`http://localhost:5000/delete/${id}`,{
+method:"DELETE"
+});
+
+fetchUsers();
+}
+
+fetchUsers();
+
+</script>
+
+</body>
+</html>
