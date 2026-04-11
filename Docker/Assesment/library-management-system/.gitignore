@@ -1,0 +1,67 @@
+# 🔹 Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 🔹 Virtual environments
+venv/
+env/
+ENV/
+
+# 🔹 Environment variables
+.env
+
+# 🔹 Logs
+*.log
+
+# 🔹 OS files
+.DS_Store
+Thumbs.db
+
+# 🔹 IDE / Editor
+.vscode/
+.idea/
+
+# 🔹 Temp / swap
+*.swp
+*.swo
+*~
+
+# 🔹 Database (local only)
+*.db
+*.sqlite3
+
+# 🔹 Node (if any)
+node_modules/
+
+# 🔹 Python build/cache
+instance/
+.cache/
+
+# 🔹 Secrets
+config.json
+secrets.yml
+
+# 🔹 Large / unnecessary folders (IMPORTANT)
+bin/
+ss/
+Misc/
+
+# 🔹 Ignore archives / binaries
+*.tar
+*.exe
+
+# 🔹 Ignore virtual environment inside project
+library-management-system/venv/
+
+# 🔹 DO NOT IGNORE THESE (IMPORTANT)
+!*.py
+!*.md
+!*.yml
+!*.yaml
+!*.conf
+!*.png
+!*.jpg
+!*.jpeg
+!*.gif
