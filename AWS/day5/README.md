@@ -11,24 +11,6 @@ This project demonstrates how to build a **custom VPC architecture** in AWS with
 
 ---
 
-# 📌 Architecture Overview
-
-```
-
-Internet
-↓
-Internet Gateway (IGW)
-↓
-Public Subnets (EC2 - Bastion Host)
-↓
-NAT Gateway
-↓
-Private Subnets (EC2 - Application Server)
-
-````
-
----
-
 # 🧱 Step 1: Create VPC
 
 - **Name:** `Test-vpc`
